@@ -10,25 +10,35 @@
 
 <body>
     <div class="container ">
-    <br/><br/><br/>
+        <br /><br /><br />
         <form class="col-lg-3">
             <div class="form-group">
+                <?php
+                    $email = "";
+                    $pass = "";
+                    if(isset($_COOKIE["email"])){
+                        $email = $_COOKIE["email"];
+                    }
+                    if(isset($_COOKIE["password"])){
+                        $pass = $_COOKIE["password"];
+                    }
+
+                ?>
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="e" aria-describedby="emailHelp"
-                    placeholder="Enter email">
+                <input type="email" value="<?php echo $email; ?>" class="form-control" id="e" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="p" placeholder="Password">
+                <input type="password" value="<?php echo $pass; ?>" class="form-control" id="p" placeholder="Password">
             </div>
-            <br/>
+            <br />
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="c">
                 <label class="form-check-label" for="exampleCheck1">Remember Me</label>
             </div>
-            <br/>
+            <br />
             <button type="submit" onclick="signin();" class="btn btn-success">Sign In</button>
         </form>
     </div>
